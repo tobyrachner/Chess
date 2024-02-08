@@ -13,7 +13,7 @@ class Game:
     def __init__(self):
         pygame.init()
 
-        pygame.display.set_caption("Chess God")
+        pygame.display.set_caption("Chess")
         self.screen = pygame.display.set_mode(SCREENSIZE)
 
         self.boardSize = BOARDSIZE
@@ -26,7 +26,6 @@ class Game:
         self.images = {'white': {}, 'black': {}}
         for name in os.listdir('assets/piece_images/'):
             img = pygame.transform.scale(pygame.image.load('assets/piece_images/' + name), (SQUARESIZE * 0.8, SQUARESIZE * 0.8))
-            #img.set_colorkey((255, 255, 255))
             color, piece = name.split('_')
             self.images[color][piece[:-4]] = img
         self.selectedDot = pygame.transform.scale(pygame.image.load('assets/selected.png'), (SQUARESIZE, SQUARESIZE))
